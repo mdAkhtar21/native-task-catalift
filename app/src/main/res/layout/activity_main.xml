@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5FA"
+    android:orientation="vertical"
+    android:layout_marginTop="40dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#000B57"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp">
+
+        <TextView
+            android:text="CATALIFT"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+
+        <ImageView android:src="@drawable/user__1_"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:tint="@color/white"
+            android:layout_marginEnd="16dp" />
+
+        <ImageView android:src="@drawable/baseline_notifications_none_24"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:tint="@color/white"
+            android:layout_marginEnd="16dp" />
+        <ImageView android:src="@drawable/baseline_message_24"
+            android:layout_width="24dp"
+            app:tint="@color/white"
+            android:layout_height="24dp" />
+    </LinearLayout>
+
+
+
+    <!-- Tab Section -->
+    <LinearLayout
+        android:id="@+id/tabSection"
+        android:layout_below="@id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#F5F5FA"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mentors"
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:textColor="#000B57"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myMentorsBtn"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="My Mentors"
+                android:textSize="15sp"
+                android:textColor="#000B57"
+                android:textAllCaps="false"
+                android:translationX="10dp"
+                android:background="@drawable/tab_unselected"
+                android:layout_weight="1"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/exploreBtn"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:text="Explore"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:translationX="-10dp"
+                android:background="@drawable/tab_selected" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Search -->
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_below="@id/tabSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/background_color"
+        android:queryHint="Search by name"
+        android:iconifiedByDefault="false" />
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_below="@id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_mentor"
+        android:layout_above="@+id/bottomNav"
+        android:layout_margin="8dp" />
+
+    <!-- Bottom Nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#000B57"
+        android:textAlignment="center"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/menu" />
+
+</RelativeLayout>
